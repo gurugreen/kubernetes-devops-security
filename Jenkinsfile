@@ -32,7 +32,7 @@ pipeline {
             steps {
               withKubeConfig([credentialsId: 'kubeconfig', serverUrl: '']) {
                 sh "sed -i 's#replace#gurugreen/spring-boot-app:$GIT_COMMIT#g' k8s/deployment.yaml"
-                sh "kubectl apply -f k8s/deployment.yaml"
+                sh "kubectl apply -f k8s_deployment_service.yaml"
               }
             }
         }
